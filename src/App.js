@@ -3,6 +3,9 @@ import Navbar from './componets/layout/Navbar';
 import Users from './componets/users/Users';
 import './App.css';
 class App extends Component {
+  componentDidMount() {
+    console.log(123);
+  }
   render() {
     return (
       <div className="App">

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './componets/layout/Navbar';
 import Users from './componets/users/Users';
 import Search from './componets/users/Search';
@@ -36,19 +37,21 @@ class App extends Component {
   render() {
     const { users, loading } = this.state;
     return (
-      <div className="App">
-        <Navbar />
-        <div className="container">
-          <Alert alert={this.state.alert} />
-          <Search
-            searchUsers={this.searchUsers}
-            clearUsers={this.clearUsers}
-            showClear={users.length > 0 ? true : false}
-            setAlert={this.setAlert}
-          />
-          <Users loading={loading} users={users} />
+      <Router>
+        <div className="App">
+          <Navbar />
+          <div className="container">
+            <Alert alert={this.state.alert} />
+            <Search
+              searchUsers={this.searchUsers}
+              clearUsers={this.clearUsers}
+              showClear={users.length > 0 ? true : false}
+              setAlert={this.setAlert}
+            />
+            <Users loading={loading} users={users} />
+          </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }
